@@ -1,5 +1,7 @@
 # SPCTOR UAV SDRadar Command Protocol
 
+This is a work in progress file describing the SPCTOR UAV-SDRadar Command Protocol. The commands listed below are intended to be used as examples and a foundation for designing the final protocol. 
+
 ## Table of Commands
 | Command | Description | Arg  | Example |
 |---------|-------------|---------|---------|
