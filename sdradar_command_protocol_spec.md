@@ -2,7 +2,18 @@
 
 This is a work in progress file describing the SPCTOR UAV-SDRadar Command Protocol. The commands listed below are intended to be used as examples and a foundation for designing the final protocol.
 
-## Table of Commands
+A ‘request’ is a TCP/IP packet containing a numeric request code and a request string. The request code will determine how the request string is interpreted. In the case shown for req_code = 200, the request string is treated as a list of commands.
+
+## Table of Request Codes
+| req_code | Description | req_str |
+|------|-------------|---------|
+| 001 | get daytime string | n/a |
+| 002 | get system status | n/a |
+| 003 | power off system | n/a |
+| 004 | power on system | n/a |
+| 200 | send command to uavsdradar | command string |
+
+## Table of Commands (req_code = 200)
 | Command | Description | Arg  | Example |
 |---------|-------------|---------|---------|
 |help | help message | n/a | --help |
@@ -47,7 +58,23 @@ void tcp_connection::handle_read_request(const boost::system::error_code& error)
         std::cout << "Invalid response\n";
         return;
       }
-      if (req_code == 200)
+      if (req_code == 001)
+      {
+        m_message  = make_daytime_string();
+      }
+      else if (req_code == 002)
+      {
+        m_message = _uavsdradar->get_system_status();
+      }
+      else if (req_code == 003)
+      {
+        m_message = _uavsdradar->poweroff();
+      }
+      else if (req_code == 004)
+      {
+        m_message = _uavsdradar->poweron();
+      }
+      else if (req_code == 200)
       {
 
           std::string flightplanstr, flighttimestr, freqplanstr, rxfname, flightid;
