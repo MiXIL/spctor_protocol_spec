@@ -155,7 +155,7 @@ void tcp_connection::handle_read_request(const boost::system::error_code& error)
               return;
           }
 
-          if (!_usrp->isActive())
+          if (!_uavsdradar->isActive())
               _uavsdradar->refresh();
 
 
