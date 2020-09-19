@@ -29,14 +29,14 @@ A ‘request’ is a TCP/IP packet containing a numeric request code and a reque
 
 ### Example Command (req_code = 200)
 
-In the case where req_code=200 is specified, the request string is treated as a list of commands i.e.
+In the case where req_code=200 is specified, the request string is treated as a list of commands. For example:
 
 `--flightplan [lat0,lon0,el0;lat1,lon1,el1] --executeflight 20200918T123000 --freqs 1e9:5e7:2e9 --sweeps 1000 --sri .7 --file flight1/out.dat`
 
 This would tell the UAV to:
 - fly the specified coordinates starting at 12:30:00 with the radar operating in stepped frequency mode from 1-2 GHz in 50 MHz steps.
 - operate the radar would for 1000 sweep pulses at sweep repetition interval of .7 sec/sweep.
-- save data with base filename `flight1/out.dat` such that actual filenames would look something like `flight1/sweep-0/out-1000mhz-20200918T123000s100000`.
+- save data with base filename `flight1/out.dat` such that actual filenames would look something like `flight1/sweep-0/out-1000mhz-20200918T123000s100000.dat`.
 
 In response to this command, the uavsdradar would send a unique flightid which could be used later by the RPi to request data
 
