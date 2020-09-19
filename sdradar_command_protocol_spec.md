@@ -1,6 +1,6 @@
 # SPCTOR UAV SDRadar Command Protocol
 
-This is a work in progress file describing the SPCTOR UAV-SDRadar Command Protocol. The commands listed below are intended to be used as examples and a foundation for designing the final protocol. 
+This is a work in progress file describing the SPCTOR UAV-SDRadar Command Protocol. The commands listed below are intended to be used as examples and a foundation for designing the final protocol.
 
 ## Table of Commands
 | Command | Description | Arg  | Example |
@@ -47,7 +47,7 @@ void tcp_connection::handle_read_request(const boost::system::error_code& error)
         std::cout << "Invalid response\n";
         return;
       }
-      if (req_code == 001)
+      if (req_code == 200)
       {
 
           std::string flightplanstr, flighttimestr, freqplanstr, rxfname, flightid;
