@@ -98,16 +98,16 @@ void tcp_connection::handle_read_request(const boost::system::error_code& error)
           //setup the program options
           po::options_description desc("Allowed options");
           desc.add_options()
-            ("help |"help message")
-            ("status |"get status")
-            ("date |"get date/time")
-            ("flightplan |po::value<std::string>(&flightplanstr), "Upload a flight plan")
-            ("executeflight |po::value<std::string>(&flighttimestr), "Execute flight plan at specified date/time")
-            ("file |po::value<std::string>(&rxfname), "Base name of data output file (must have .dat extension)")
-            ("freqs |po::value<std::string>(&freqplanstr), "Vector of RF Center frequencies. Format; f1,f2,... or f1:df:fend")
-            ("sweeps |po::value<int>(&numsweeps)->default_value(1), "number of frequency sweeps (Default: 1)")
-            ("sri |po::value<double>(&sri),"Frequency Sweep Repition Interval in sec")
-            ("getdata |po::value<std::string>(&flightid),"Get full dataset for a give flight id")
+            ("help" |"help message")
+            ("status" |"get status")
+            ("date" |"get date/time")
+            ("flightplan" |po::value<std::string>(&flightplanstr), "Upload a flight plan")
+            ("executeflight" |po::value<std::string>(&flighttimestr), "Execute flight plan at specified date/time")
+            ("file" |po::value<std::string>(&rxfname), "Base name of data output file (must have .dat extension)")
+            ("freqs" |po::value<std::string>(&freqplanstr), "Vector of RF Center frequencies. Format; f1,f2,... or f1:df:fend")
+            ("sweeps" |po::value<int>(&numsweeps)->default_value(1), "number of frequency sweeps (Default: 1)")
+            ("sri" |po::value<double>(&sri),"Frequency Sweep Repition Interval in sec")
+            ("getdata" |po::value<std::string>(&flightid),"Get full dataset for a give flight id")
           ;
           po::variables_map vm;
           try{
